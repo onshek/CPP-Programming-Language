@@ -2,6 +2,10 @@
 # Editor temporary/working/backup files #
 .vs/
 .vscode/
+Debug/
+*.vcxproj
+*.vcxproj.filters
+*vcxproj.user
 
 # OS generated files #
 ######################
