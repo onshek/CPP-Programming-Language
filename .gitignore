@@ -9,6 +9,7 @@ Debug/
 *vcxproj.user
 .idea/
 cmake-build-debug/
+CMakeLists.txt
 
 # OS generated files #
 ######################
