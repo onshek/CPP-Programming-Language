@@ -1,4 +1,4 @@
-﻿// 10_4_1.cpp : P416-P417
+// 10_4_1.cpp : P416-P417
 #include <vector>
 #include <iostream>
 using namespace std;

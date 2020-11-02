@@ -5,7 +5,7 @@ using namespace std;
 
 double SavingsAccount::total = 0;
 
-// SavingsAccount 类相关成员函数的实现
+// SavingsAccount 绫荤浉鍏虫垚鍛樺嚱鏁扮殑瀹炵幇
 SavingsAccount::SavingsAccount(const Date& date, const string& id, double rate) :
 	id(id), balance(0), rate(rate), lastDate(date), accumulation(0) {
 	date.show();

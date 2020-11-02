@@ -2,68 +2,68 @@
 #define QUEUE_H
 #include <cassert>
 
-//ÀàÄ£°åµÄ¶¨Òå
+//ç±»æ¨¡æ¿çš„å®šä¹‰
 template<class T, int SIZE=50>
 class Queue {
 private:
-	int front, rear, count;                     //¶ÓÍ·Ö¸Õë¡¢¶ÓÎ²Ö¸Õë¡¢ÔªËØ¸öÊı
-	T list[size];                               //¶ÓÁĞÔªËØÊı×é
+	int front, rear, count;                     //é˜Ÿå¤´æŒ‡é’ˆã€é˜Ÿå°¾æŒ‡é’ˆã€å…ƒç´ ä¸ªæ•°
+	T list[size];                               //é˜Ÿåˆ—å…ƒç´ æ•°ç»„
 public:
-	Queue();                                    //¹¹Ôìº¯Êı£¬³õÊ¼»¯¶ÓÍ·Ö¸Õë¡¢¶ÓÎ²Ö¸Õë¡¢ÔªËØ¸öÊı
-	void insert(const T& item);                 //ĞÂÔªËØÈë¶Ó
-	T remove();                                 //ÔªËØ³ö¶Ó
-	void clear();                               //Çå¿Õ¶ÓÁĞ
-	const T& getFront() const;                  //·ÃÎÊ¶ÓÊ×ÔªËØ
+	Queue();                                    //æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–é˜Ÿå¤´æŒ‡é’ˆã€é˜Ÿå°¾æŒ‡é’ˆã€å…ƒç´ ä¸ªæ•°
+	void insert(const T& item);                 //æ–°å…ƒç´ å…¥é˜Ÿ
+	T remove();                                 //å…ƒç´ å‡ºé˜Ÿ
+	void clear();                               //æ¸…ç©ºé˜Ÿåˆ—
+	const T& getFront() const;                  //è®¿é—®é˜Ÿé¦–å…ƒç´ 
 
-	//²âÊÔ¶ÓÁĞ×´Ì¬
-	int getLength() const;                      //Çó¶ÓÁĞ³¤¶È(ÔªËØ¸öÊı)
-	bool isEmpty() const;                       //ÅĞ¶Ï¶ÓÁĞ¿Õ·ñ
-	bool isFull() const;                        //ÅĞ¶Ï¶ÓÁĞÂú·ñ
+	//æµ‹è¯•é˜Ÿåˆ—çŠ¶æ€
+	int getLength() const;                      //æ±‚é˜Ÿåˆ—é•¿åº¦(å…ƒç´ ä¸ªæ•°)
+	bool isEmpty() const;                       //åˆ¤æ–­é˜Ÿåˆ—ç©ºå¦
+	bool isFull() const;                        //åˆ¤æ–­é˜Ÿåˆ—æ»¡å¦
 };
 
-//¹¹Ôìº¯Êı£¬³õÊ¼»¯¶ÓÍ·Ö¸Õë¡¢¶ÓÎ²Ö¸Õë¡¢ÔªËØ¸öÊı
+//æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–é˜Ÿå¤´æŒ‡é’ˆã€é˜Ÿå°¾æŒ‡é’ˆã€å…ƒç´ ä¸ªæ•°
 template<class T, int SIZE>
 Queue<T, SIZE>::Queue() : front(0), rear(0), count(0) {};
 
 template<class T, int SIZE>
-void Queue<T, SIZE>::insert(const T& item) {    //Ïò¶ÓÎ²²åÈëÔªËØ(Èë¶Ó)
+void Queue<T, SIZE>::insert(const T& item) {    //å‘é˜Ÿå°¾æ’å…¥å…ƒç´ (å…¥é˜Ÿ)
 	assert(count != SIZE);
-	count++;                                    //ÔªËØ¸öÊıÔö1
-	list[rear] = item;                          //Ïò¶ÓÎ²²åÈëÔªËØ
-	rear = (rear + 1) % SIZE;                   //¶ÓÎ²Ö¸ÕëÔö1£¬ÓÃÈ¡ÓàÔËËãÊµÏÖÑ­»·¶ÓÁĞ
+	count++;                                    //å…ƒç´ ä¸ªæ•°å¢1
+	list[rear] = item;                          //å‘é˜Ÿå°¾æ’å…¥å…ƒç´ 
+	rear = (rear + 1) % SIZE;                   //é˜Ÿå°¾æŒ‡é’ˆå¢1ï¼Œç”¨å–ä½™è¿ç®—å®ç°å¾ªç¯é˜Ÿåˆ—
 }
 
 template<class T, int SIZE>
-T Queue<T, SIZE>::remove() {                    //É¾³ı¶ÓÊ×ÔªËØ£¬²¢·µ»Ø¸ÃÔªËØµÄÖµ{³ö¶Ó)
+T Queue<T, SIZE>::remove() {                    //åˆ é™¤é˜Ÿé¦–å…ƒç´ ï¼Œå¹¶è¿”å›è¯¥å…ƒç´ çš„å€¼{å‡ºé˜Ÿ)
 	assert(count != 0);
-	int temp = front;                           //¼ÇÂ¼ÏÂÔ­ÏÈµÄ¶ÓÊ×Ö¸Õë
-	count--;                                    //ÔªËØ¸öÊı×Ô¼õ
-	front = (front + 1) % SIZE;                 //¶ÓÊ×Ö¸ÕëÔö1, È¡ÓàÒÔÊµÏÖÑ­»·¶ÓÁĞ
-	return list[temp];                          //·µ»ØÊ×ÔªËØÖµ
+	int temp = front;                           //è®°å½•ä¸‹åŸå…ˆçš„é˜Ÿé¦–æŒ‡é’ˆ
+	count--;                                    //å…ƒç´ ä¸ªæ•°è‡ªå‡
+	front = (front + 1) % SIZE;                 //é˜Ÿé¦–æŒ‡é’ˆå¢1, å–ä½™ä»¥å®ç°å¾ªç¯é˜Ÿåˆ—
+	return list[temp];                          //è¿”å›é¦–å…ƒç´ å€¼
 }
 
 template<class T, int SIZE>
-const T& Queue<T, SIZE>::getFront() const {     //·ÃÎÊ¶ÓÁĞÊ×ÔªËØ(·µ»ØÆäÖµ)
+const T& Queue<T, SIZE>::getFront() const {     //è®¿é—®é˜Ÿåˆ—é¦–å…ƒç´ (è¿”å›å…¶å€¼)
 	return list[front];
 }
 
 template<class T, int SIZE>
-int Queue<T, SIZE>::getLength() const {          //·µ»Ø¶ÓÁĞÔªËØ¸öÊı
+int Queue<T, SIZE>::getLength() const {          //è¿”å›é˜Ÿåˆ—å…ƒç´ ä¸ªæ•°
 	return count;
 }
 
 template<class T, int SIZE>
-bool Queue<T, SIZE>::isEmpty() const {           //²âÊÔ¶ÓÁĞ¿Õ·ñ
+bool Queue<T, SIZE>::isEmpty() const {           //æµ‹è¯•é˜Ÿåˆ—ç©ºå¦
 	return count == 0;
 }
 
 template<class T, int SIZE>
-bool Queue<T, SIZE>::isFull() const {            //²âÊÔ¶ÓÁĞÂú·ñ
+bool Queue<T, SIZE>::isFull() const {            //æµ‹è¯•é˜Ÿåˆ—æ»¡å¦
 	return count == SIZE;
 }
 
 template<class T, int SIZE>
-void Queue<T, SIZE>::clear() {                   //Çå¿Õ¶ÓÁĞ
+void Queue<T, SIZE>::clear() {                   //æ¸…ç©ºé˜Ÿåˆ—
 	count = 0;
 	front = 0;
 	rear = 0;

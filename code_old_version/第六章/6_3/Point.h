@@ -6,9 +6,9 @@ public:
 	Point(int x, int y);
 	~Point();
 	void move(int newX, int newY);
-	int getX() const { return x; }  // ÄÚÁªº¯Êı
-	int getY() const { return y; }  // ÄÚÁªº¯Êı
-	static void showCount();  // ¾²Ì¬º¯Êı³ÉÔ±
+	int getX() const { return x; }  // å†…è”å‡½æ•°
+	int getY() const { return y; }  // å†…è”å‡½æ•°
+	static void showCount();  // é™æ€å‡½æ•°æˆå‘˜
 private:
 	int x, y;
 };

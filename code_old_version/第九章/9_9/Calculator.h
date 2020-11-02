@@ -1,17 +1,17 @@
 #ifndef CALCULATOR H
 #define CALCULATOR H
-#include "Stack.h"                           //°üº¬Ğ£ÀàÄ£°å¶¨ÒåÎÄ¼ş
+#include "Stack.h"                           //åŒ…å«æ ¡ç±»æ¨¡æ¿å®šä¹‰æ–‡ä»¶
 
-class Calculator {                           //¼ÆËãÆ÷Àà
+class Calculator {                           //è®¡ç®—å™¨ç±»
 private:
-	Stack<double> s;                         //²Ù×÷ÊıÕ»
-	void enter(double num);                  //½«²Ù×÷Êı num Ñ¹ÈëÕ»
-	//Á¬Ğø½«Á½¸ö²Ù×÷Êıµ¯³öÕ»£¬·ÅÔÚ opndl opnd2 ÖĞ
+	Stack<double> s;                         //æ“ä½œæ•°æ ˆ
+	void enter(double num);                  //å°†æ“ä½œæ•° num å‹å…¥æ ˆ
+	//è¿ç»­å°†ä¸¤ä¸ªæ“ä½œæ•°å¼¹å‡ºæ ˆï¼Œæ”¾åœ¨ opndl opnd2 ä¸­
 	bool getTwoOperands(double& opnd1, double& opnd2);
-	void compute(char op);                   //Ö´ĞĞÓÉ²Ù×÷·û op Ö¸¶¨µÄÔËËã
+	void compute(char op);                   //æ‰§è¡Œç”±æ“ä½œç¬¦ op æŒ‡å®šçš„è¿ç®—
 public:
-	void run();                              //ÔËĞĞ¼ÆËãÆ÷³ÌĞò
-	void clear();                            //Çå¿Õ²Ù×÷ÊıÕ»
+	void run();                              //è¿è¡Œè®¡ç®—å™¨ç¨‹åº
+	void clear();                            //æ¸…ç©ºæ“ä½œæ•°æ ˆ
 };
 
 #endif // !CALCULATOR H

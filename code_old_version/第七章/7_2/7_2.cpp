@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "rectancle.h"
 using namespace std;
 

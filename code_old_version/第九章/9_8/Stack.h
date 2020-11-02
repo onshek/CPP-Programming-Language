@@ -2,56 +2,56 @@
 #define STACK_H
 #include <cassert>
 
-//Ä£°åµÄ¶¨Òå£¬SIZEÎªÕ»µÄ´óĞ¡
+//æ¨¡æ¿çš„å®šä¹‰ï¼ŒSIZEä¸ºæ ˆçš„å¤§å°
 template<class T, int SIZE=50>
 class Stack {
 private:
-	T list[SIZE];                          //Êı×é£¬ÓÃÓÚ´æ·ÅÕ»µÄÔªËØ
-	int top;                               //Õ»¶¥Î»ÖÃ(Êı×éÏÂ±ê)
+	T list[SIZE];                          //æ•°ç»„ï¼Œç”¨äºå­˜æ”¾æ ˆçš„å…ƒç´ 
+	int top;                               //æ ˆé¡¶ä½ç½®(æ•°ç»„ä¸‹æ ‡)
 public:
-	Stack();                               //¹¹Ôìº¯Êı£¬³õÊ¼»¯Õ»
-	void push(const T& item);              //½«ÔªËØitemÑ¹ÈëÕ»
-	T pop();                               //½«Õ»¶¥ÔªËØµ¯³öÕ»
-	void clear();                          //½«Õ»Çå¿Õ
-	const T& peek() const;                 //·ÃÎÊÕ»¶¥ÔªËØ
-	bool isEmpty() const;                  //²âÊÔÊÇ·ñÕ»Âú
-	bool isFull() const;                   //²âÊÔÊÇ·ñÕ»¿Õ
+	Stack();                               //æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–æ ˆ
+	void push(const T& item);              //å°†å…ƒç´ itemå‹å…¥æ ˆ
+	T pop();                               //å°†æ ˆé¡¶å…ƒç´ å¼¹å‡ºæ ˆ
+	void clear();                          //å°†æ ˆæ¸…ç©º
+	const T& peek() const;                 //è®¿é—®æ ˆé¡¶å…ƒç´ 
+	bool isEmpty() const;                  //æµ‹è¯•æ˜¯å¦æ ˆæ»¡
+	bool isFull() const;                   //æµ‹è¯•æ˜¯å¦æ ˆç©º
 };
 
-//Ä£°åµÄÊµÏÖ
+//æ¨¡æ¿çš„å®ç°
 template<class T, int SIZE>
-Stack<T, SIZE>::Stack() : top(-1) {};      //¹¹Ôìº¯Êı£¬Õ»¶¥³õÊ¼»¯Îª -1
+Stack<T, SIZE>::Stack() : top(-1) {};      //æ„é€ å‡½æ•°ï¼Œæ ˆé¡¶åˆå§‹åŒ–ä¸º -1
 
 template<class T, int SIZE>
-void Stack<T, SIZE>::push(const T& item) { //½«ÔªËØitemÑ¹ÈëÕ»
-	assert(!isFull());                     //Èç¹ûÕ»ÂúÁË£¬Ôò±¨´í
-	list[++top] = item;                    //½«ĞÂÔªËØÑ¹ÈëÕ»¶¥
+void Stack<T, SIZE>::push(const T& item) { //å°†å…ƒç´ itemå‹å…¥æ ˆ
+	assert(!isFull());                     //å¦‚æœæ ˆæ»¡äº†ï¼Œåˆ™æŠ¥é”™
+	list[++top] = item;                    //å°†æ–°å…ƒç´ å‹å…¥æ ˆé¡¶
 }
 
 template<class T, int SIZE>
-T Stack<T, SIZE>::pop() {                  //½«Õ»¶¥ÔªËØµ¯³öÕ»
-	assert(!isEmpty());                    //Èç¹ûÕ»Îª¿Õ£¬Ôò±¨´í
-	return list[top--];                    //·µ»ØÕ»¶¥ÔªËØ£¬²¢½«Æäµ¯³öÕ»¶¥
+T Stack<T, SIZE>::pop() {                  //å°†æ ˆé¡¶å…ƒç´ å¼¹å‡ºæ ˆ
+	assert(!isEmpty());                    //å¦‚æœæ ˆä¸ºç©ºï¼Œåˆ™æŠ¥é”™
+	return list[top--];                    //è¿”å›æ ˆé¡¶å…ƒç´ ï¼Œå¹¶å°†å…¶å¼¹å‡ºæ ˆé¡¶
 }
 
 template<class T, int SIZE>
-const T& Stack<T, SIZE>::peek() const {    //·ÃÎÊÕ»¶¥ÔªËØ
-	assert(!isEmpty());                    //Èç¹ûÕ»Îª¿Õ£¬Ôò±¨´í
-	return list[top];                      //·µ»ØÕ»¶¥ÔªËØ
+const T& Stack<T, SIZE>::peek() const {    //è®¿é—®æ ˆé¡¶å…ƒç´ 
+	assert(!isEmpty());                    //å¦‚æœæ ˆä¸ºç©ºï¼Œåˆ™æŠ¥é”™
+	return list[top];                      //è¿”å›æ ˆé¡¶å…ƒç´ 
 } 
 
 template<class T, int SIZE>
-bool Stack<T, SIZE>::isEmpty() const{      //²âÊÔÕ»ÊÇ·ñÎª¿Õ
+bool Stack<T, SIZE>::isEmpty() const{      //æµ‹è¯•æ ˆæ˜¯å¦ä¸ºç©º
 	return top == -1;
 }
 
 template<class T, int SIZE>
-bool Stack<T, SIZE>::isFull() const {      //²âÊÔÊÇ·ñÕ»Âú
+bool Stack<T, SIZE>::isFull() const {      //æµ‹è¯•æ˜¯å¦æ ˆæ»¡
 	return top == SIZE - 1;
 }
 
 template<class T, int SIZE>
-void Stack<T, SIZE>::clear() {             //Çå¿ÕÕÒ
+void Stack<T, SIZE>::clear() {             //æ¸…ç©ºæ‰¾
 	top = -1;
 }
 #endif // !STACK_H

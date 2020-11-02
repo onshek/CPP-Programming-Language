@@ -1,4 +1,4 @@
-﻿#include <functional>
+#include <functional>
 #include <iostream>
 #include <vector>
 #include <algorithm>

@@ -1,4 +1,4 @@
-﻿//这是我额外的尝试，并非课程中所有
+//这是我额外的尝试，并非课程中所有
 //笔记位于 C:\Users\honfu\OneDrive - alu.suda.edu.cn\Notes\20200316_C++多继承和虚基类.txt
 
 #include <iostream>

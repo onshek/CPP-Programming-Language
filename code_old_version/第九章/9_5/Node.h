@@ -1,53 +1,53 @@
 #ifndef NODE_H
 #define NODE_H
 
-//ÀàÄ£°åµÄ¶¨Òå
+//ç±»æ¨¡æ¿çš„å®šä¹‰
 template<class T>
 class Node {
 private:
-	Node<T>* next;                       //Ö¸Ïòºó¼Ì½áµãµÄÖ¸Õë
+	Node<T>* next;                       //æŒ‡å‘åç»§ç»“ç‚¹çš„æŒ‡é’ˆ
 public:
-	T data;                              //Êı¾İÓò
-	Node(const T& data, Node<T>* next);  //¹¹Ôìº¯Êı
-	void insertAfter(Node<T>* p);        //ÔÚ±¾½áµãÖ®ºó²åÈëÒ»¸öÍ¬Àà½áµãp
-	Node<T>* deleteAfter();              //É¾³ı±¾½áµãµÄºó¼Ì½áµã£¬²¢·µ»ØÆäµØÖ·
-	Node<T>* nextNode();                 //»ñÈ¡ºó¼Ì½áµãµÄµØÖ·
-	const Node<T>* nextNode() const;     //»ñÈ¡ºó¼Ì½áµãµÄµØÖ·
+	T data;                              //æ•°æ®åŸŸ
+	Node(const T& data, Node<T>* next);  //æ„é€ å‡½æ•°
+	void insertAfter(Node<T>* p);        //åœ¨æœ¬ç»“ç‚¹ä¹‹åæ’å…¥ä¸€ä¸ªåŒç±»ç»“ç‚¹p
+	Node<T>* deleteAfter();              //åˆ é™¤æœ¬ç»“ç‚¹çš„åç»§ç»“ç‚¹ï¼Œå¹¶è¿”å›å…¶åœ°å€
+	Node<T>* nextNode();                 //è·å–åç»§ç»“ç‚¹çš„åœ°å€
+	const Node<T>* nextNode() const;     //è·å–åç»§ç»“ç‚¹çš„åœ°å€
 };
 
-//ÀàµÄÊµÏÖ²¿·Ö
-//¹¹Ôìº¯Êı£¬³õÊ¼»¯Êı¾İºÍÖ¸Õë³ÉÔ±
+//ç±»çš„å®ç°éƒ¨åˆ†
+//æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–æ•°æ®å’ŒæŒ‡é’ˆæˆå‘˜
 template<class T>
 Node<T>::Node(const T& data, Node<T>* next) :data(data), next(next) {};
 
-//·µ»Øºó¼Ì½áµãµÄÖ¸Õë
+//è¿”å›åç»§ç»“ç‚¹çš„æŒ‡é’ˆ
 template<class T>
 Node<T>* Node<T>::nextNode() {
 	return next;
 }
 
-//·µ»Øºó¼Ì½áµãµÄÖ¸Õë
+//è¿”å›åç»§ç»“ç‚¹çš„æŒ‡é’ˆ
 template<class T>
 const Node<T>* Node<T>::nextNode() const {
 	return next;
 }
 
-//ÔÚµ±Ç°½áµãÖ®ºó²åÈëÒ»¸ö½áµã
+//åœ¨å½“å‰ç»“ç‚¹ä¹‹åæ’å…¥ä¸€ä¸ªç»“ç‚¹
 template<class T>
 void Node<T>::insertAfter(Node<T>* p) {
 	p->next = next;
 	next = p;
 }
 
-//É¾³ıµ±Ç°½áµãµÄºó¼Ì½áµã£¬²¢·µ»ØÆäµØÖ·
+//åˆ é™¤å½“å‰ç»“ç‚¹çš„åç»§ç»“ç‚¹ï¼Œå¹¶è¿”å›å…¶åœ°å€
 template<class T>
 Node<T>* Node<T>::deleteAfter() {
-	Node<T> tempPtr = next;               //½«ÓûÉ¾³ıµÄ½áµãµØÖ·´æ´¢µ½ tempPtr
-	if (next == 0) {                      //Èç¹ûµ±Ç°½áµãÃ»ÓĞºó¼Ì½áµã£¬Ôò·µ»Ø¿ÕÖ¸Õë
+	Node<T> tempPtr = next;               //å°†æ¬²åˆ é™¤çš„ç»“ç‚¹åœ°å€å­˜å‚¨åˆ° tempPtr
+	if (next == 0) {                      //å¦‚æœå½“å‰ç»“ç‚¹æ²¡æœ‰åç»§ç»“ç‚¹ï¼Œåˆ™è¿”å›ç©ºæŒ‡é’ˆ
 		return 0;
 	}
-	next = tempPtr->next;                 //Ê¹µ±Ç°½áµãµÄÖ¸ÕëÓòÖ¸Ïò tempPtr µÄºó¼Ì½áµã
-	return next;                          //·µ»Ø±»É¾³ıµÄ½áµãµÄµØÖ·
+	next = tempPtr->next;                 //ä½¿å½“å‰ç»“ç‚¹çš„æŒ‡é’ˆåŸŸæŒ‡å‘ tempPtr çš„åç»§ç»“ç‚¹
+	return next;                          //è¿”å›è¢«åˆ é™¤çš„ç»“ç‚¹çš„åœ°å€
 }
 
 #endif // !NODE_H

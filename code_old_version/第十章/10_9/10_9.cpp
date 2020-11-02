@@ -1,4 +1,4 @@
-﻿#include <set>
+#include <set>
 #include <iterator>
 #include <utility>
 #include <iostream>

@@ -1,7 +1,7 @@
 #ifndef HEADER_9_12_H
 #define HEADER_9_12_H
 
-//¸¨Öúº¯Êı:½»»»x,yµÄÖµ
+//è¾…åŠ©å‡½æ•°:äº¤æ¢x,yçš„å€¼
 template<class T>
 void mySwap(T& x, T& y) {
 	temp = x;
@@ -9,16 +9,16 @@ void mySwap(T& x, T& y) {
 	y = temp;
 }
 
-//ÓÃÑ¡Ôñ·¨¶ÔÊı×éaµÄn¸öÔªËØ½øĞĞÅÅĞò
+//ç”¨é€‰æ‹©æ³•å¯¹æ•°ç»„açš„nä¸ªå…ƒç´ è¿›è¡Œæ’åº
 template<class T>
 void selectSort(T a[], int n) {
 	for (i = 0; i < n - 1; i++) {
-		int leastIndex = i;                 //×îĞ¡ÔªËØµÄÏÂ±ê³õÖµÉèÎª¹¤
+		int leastIndex = i;                 //æœ€å°å…ƒç´ çš„ä¸‹æ ‡åˆå€¼è®¾ä¸ºå·¥
 		for (int j = i + 1; j < n; j++) {
-			if (a[j] < a[leastIndex])       //leastIndex Ê¼ÖÕ¼ÇÂ¼µ±Ç°ÕÒµ½µÄ×îĞ¡ÖµµÄÏÂ±ê
+			if (a[j] < a[leastIndex])       //leastIndex å§‹ç»ˆè®°å½•å½“å‰æ‰¾åˆ°çš„æœ€å°å€¼çš„ä¸‹æ ‡
 				leastIndex = j;
 		}
-		mySwap(a[i], a[leastIndex]);        //½«ÕâÒ»ÌËÕÒµ½µÄ×îĞ¡ÔªËØÓë a[i] ½»»»
+		mySwap(a[i], a[leastIndex]);        //å°†è¿™ä¸€è¶Ÿæ‰¾åˆ°çš„æœ€å°å…ƒç´ ä¸ a[i] äº¤æ¢
 	}
 }
 

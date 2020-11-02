@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 void splifFloat(float x, int* intPart, float* fracPart) {

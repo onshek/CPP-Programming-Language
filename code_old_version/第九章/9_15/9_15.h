@@ -1,24 +1,24 @@
 #ifndef HEADER_9_15_H
 #define HEADER_9_15_H
 
-//ÓÃÕÛ°ë²éÕÒ·½·¨£¬ÔÚÔªËØ³ÊÉıĞòÅÅÁĞµÄÊı×é list ÖĞ²éÕÒÖµÎª key µÄÔªËØ
+//ç”¨æŠ˜åŠæŸ¥æ‰¾æ–¹æ³•ï¼Œåœ¨å…ƒç´ å‘ˆå‡åºæ’åˆ—çš„æ•°ç»„ list ä¸­æŸ¥æ‰¾å€¼ä¸º key çš„å…ƒç´ 
 template<class T>
 void binSearch(const T list[], int n, const T& key) {
 	int low = 0;
 	int high = n - 1;
-	while (low <= high) {                 //low <= high ±íÊ¾Õû¸öÊı×éÉĞÎ´²éÕÒÍê
-		int mid = (low + high) / 2;       //ÇóÖĞ¼äÔªËØµÄÏÂ±ê
+	while (low <= high) {                 //low <= high è¡¨ç¤ºæ•´ä¸ªæ•°ç»„å°šæœªæŸ¥æ‰¾å®Œ
+		int mid = (low + high) / 2;       //æ±‚ä¸­é—´å…ƒç´ çš„ä¸‹æ ‡
 		if (list[mid] == key) {
-			return mid;                   //ÈôÕÒµ½£¬·µ»ØÏÂ±ê
+			return mid;                   //è‹¥æ‰¾åˆ°ï¼Œè¿”å›ä¸‹æ ‡
 		}
 		else if (key < list[mid]) {
-			high = mid - 1;               //Èô key< list[mid] ½«²éÕÒ·¶Î§ËõĞ¡µ½Êı×éµÄÇ°Ò»°ë
+			high = mid - 1;               //è‹¥ key< list[mid] å°†æŸ¥æ‰¾èŒƒå›´ç¼©å°åˆ°æ•°ç»„çš„å‰ä¸€åŠ
 		}
 		else {
-			low = mid + 1;                //·ñÔò½«²éÕÒ·¶Î§ËõĞ¡µ½Êı×éµÄºóÒ»°ë
+			low = mid + 1;                //å¦åˆ™å°†æŸ¥æ‰¾èŒƒå›´ç¼©å°åˆ°æ•°ç»„çš„åä¸€åŠ
 		}
 	}
-	return -1;                            //Ã»ÓĞÕÒµ½·µ»Ø-1
+	return -1;                            //æ²¡æœ‰æ‰¾åˆ°è¿”å›-1
 } 
 
 #endif // !HEADER_9_15_H

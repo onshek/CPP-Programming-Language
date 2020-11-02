@@ -5,49 +5,49 @@
 template<class T>
 class LinkedList {
 private:
-	//Êı¾İ³ÉÔ±:
-	Node<T>* front, * rear;              //±íÍ·ºÍ±íÎ²Ö¸Õë
-	Node<T>* prevPtr, * currPtr;         //¼ÇÂ¼±íµ±Ç°±éÀúÎ»ÖÃµÄÖ¸Õë£¬ÓÉ²åÈëºÍÉ¾³ı²Ù×÷¸üĞÂ
-	int size;                            //±íÖĞµÄÔªËØ¸öÊı
-	int position;                        //µ±Ç°ÔªËØÔÚ±íÖĞµÄÎ»ÖÃĞòºÅ¡£ÓÉº¯Êı reset Ê¹ÓÃ
+	//æ•°æ®æˆå‘˜:
+	Node<T>* front, * rear;              //è¡¨å¤´å’Œè¡¨å°¾æŒ‡é’ˆ
+	Node<T>* prevPtr, * currPtr;         //è®°å½•è¡¨å½“å‰éå†ä½ç½®çš„æŒ‡é’ˆï¼Œç”±æ’å…¥å’Œåˆ é™¤æ“ä½œæ›´æ–°
+	int size;                            //è¡¨ä¸­çš„å…ƒç´ ä¸ªæ•°
+	int position;                        //å½“å‰å…ƒç´ åœ¨è¡¨ä¸­çš„ä½ç½®åºå·ã€‚ç”±å‡½æ•° reset ä½¿ç”¨
 
-	//º¯Êı³ÉÔ± :
-	//Éú³ÉĞÂ½áµã£¬Êı¾İÓòÎª item £¬Ö¸ÕëÓòÎª ptrNext
+	//å‡½æ•°æˆå‘˜ :
+	//ç”Ÿæˆæ–°ç»“ç‚¹ï¼Œæ•°æ®åŸŸä¸º item ï¼ŒæŒ‡é’ˆåŸŸä¸º ptrNext
 	Node<T>* newNode(const T& item, Node<T>* ptrNext = NULL);
 
-	//ÊÍ·Å½áµã
+	//é‡Šæ”¾ç»“ç‚¹
 	void freeNode(Node<T>* p);
 
-	//½«Á´±í ¸´ÖÆµ½µ±Ç°±í(¼ÙÉèµ±Ç°±íÎª¿Õ)
-	//±»¸´ÖÆ¹¹Ôìº¯ÊıºÍ "operator=" µ÷ÓÃ
+	//å°†é“¾è¡¨ å¤åˆ¶åˆ°å½“å‰è¡¨(å‡è®¾å½“å‰è¡¨ä¸ºç©º)
+	//è¢«å¤åˆ¶æ„é€ å‡½æ•°å’Œ "operator=" è°ƒç”¨
 	void copy(const LinkedList<T>& L);
 
 public:
-	LinkedList();                                        //¹¹Ôìº¯Êı
-	LinkedList(const LinkedList<T>& L);                  //¸´ÖÆ¹¹Ôìº¯Êı
-	~LinkedList();                                       //Îö¹¹º¯Êı
-	LinkedList<T>& oprator = (const LinkedList<T> & L);  //ÖØÔØ¸³ÖµÔËËã·û
+	LinkedList();                                        //æ„é€ å‡½æ•°
+	LinkedList(const LinkedList<T>& L);                  //å¤åˆ¶æ„é€ å‡½æ•°
+	~LinkedList();                                       //ææ„å‡½æ•°
+	LinkedList<T>& oprator = (const LinkedList<T> & L);  //é‡è½½èµ‹å€¼è¿ç®—ç¬¦
 
-	int getSize() const;                                 //·µ»ØÁ´±íÖĞÔªËØ¸öÊı
-	bool isEmpty() const;                                //Á´±íÊÇ·ñÎª¿Õ
-	void reset(int pos=0);                               //³õÊ¼»¯Ô¡±êµÄÎ»ÖÃ 
-	void next();                                         //Ê¹Ç±±êÒÆ¶¯µ½ÏÂÒ»¸ö½áµã
+	int getSize() const;                                 //è¿”å›é“¾è¡¨ä¸­å…ƒç´ ä¸ªæ•°
+	bool isEmpty() const;                                //é“¾è¡¨æ˜¯å¦ä¸ºç©º
+	void reset(int pos=0);                               //åˆå§‹åŒ–æµ´æ ‡çš„ä½ç½® 
+	void next();                                         //ä½¿æ½œæ ‡ç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªç»“ç‚¹
 
-	bool endOfList() const;                              //ÓÎ±êÊÇ·ñµ½ÁËÁ´Î²
-	int currentPosition() const;                         //·µ»ØÓÎ±êµ±Ç°µÄÎ»ÖÃ
+	bool endOfList() const;                              //æ¸¸æ ‡æ˜¯å¦åˆ°äº†é“¾å°¾
+	int currentPosition() const;                         //è¿”å›æ¸¸æ ‡å½“å‰çš„ä½ç½®
 
-	void insertFront(const T& item);                     //ÔÚ±íÍ·²åÈë½áµã
-	void insertRear(const T& item);                      //ÔÚ±íÎ²Ìí¼Ó½áµã
-	void insertAt(const T& item);                        //ÔÚµ±Ç°½áµãÖ®Ç°²åÈë½áµã
-	void insertAfter(const T& item);                     //ÔÚµ±Ç°½áµãÖ®ºó²åÈë½áµã
+	void insertFront(const T& item);                     //åœ¨è¡¨å¤´æ’å…¥ç»“ç‚¹
+	void insertRear(const T& item);                      //åœ¨è¡¨å°¾æ·»åŠ ç»“ç‚¹
+	void insertAt(const T& item);                        //åœ¨å½“å‰ç»“ç‚¹ä¹‹å‰æ’å…¥ç»“ç‚¹
+	void insertAfter(const T& item);                     //åœ¨å½“å‰ç»“ç‚¹ä¹‹åæ’å…¥ç»“ç‚¹
 
-	T deleteFront();                                     //É¾³ıÍ·½áµã
-	void deleteCurrent();                                //É¾³ıµ±Ç°½áµã
+	T deleteFront();                                     //åˆ é™¤å¤´ç»“ç‚¹
+	void deleteCurrent();                                //åˆ é™¤å½“å‰ç»“ç‚¹
 
-	T& data();                                           //·µ»Ø¶Ôµ±Ç°½áµã³ÉÔ±Êı¾İµÄÒıÓÃ
-	const T& data() const;                               //·µ»Ø¶Ôµ±Ç°½áµã³ÉÔ±Êı¾İµÄ³£ÒıÓÃ
+	T& data();                                           //è¿”å›å¯¹å½“å‰ç»“ç‚¹æˆå‘˜æ•°æ®çš„å¼•ç”¨
+	const T& data() const;                               //è¿”å›å¯¹å½“å‰ç»“ç‚¹æˆå‘˜æ•°æ®çš„å¸¸å¼•ç”¨
 
-	//Çå¿ÕÁ´±í:ÊÍ·ÅËùÓĞ½áµãµÄÄÚ´æ¿Õ¼ä¡£±»Îö¹¹º¯ÊıºÍ "operator=" µ÷ÓÃ
+	//æ¸…ç©ºé“¾è¡¨:é‡Šæ”¾æ‰€æœ‰ç»“ç‚¹çš„å†…å­˜ç©ºé—´ã€‚è¢«ææ„å‡½æ•°å’Œ "operator=" è°ƒç”¨
 	void cldar();
 };
 

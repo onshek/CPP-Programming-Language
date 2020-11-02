@@ -9,18 +9,18 @@ private:
 	int size;
 public:
 	Array(int sz = 50);
-	Array(const Array<T>& a);                       // ¸´ÖÆ¹¹Ôìº¯Êı
-	~Array();                                       //Îö¹¹º¯Êı
-	Array<T>& operator = (const Array<T>& rhs);     //ÖØÔØ"="Ê¹Êı×é¶ÔÏó¿ÉÒÔÕûÌå¸³Öµ
-	T& operator[] (int i);	                        //ÖØÔØ"[]"Ê¹ Array ¶ÔÏó¿ÉÒÔÆğµ½ C++ ÆÕÍ¨Êı×éµÄ×÷ÓÃ
-	const T& operator [](int i) const;              //ÖØÔØ"[]"ÔËËã·ûÕë¶Ô const µÄÖØÔØ
-	operator T* ();                                 //ÖØÔØµ½ T* ÀàĞÍµÄ×ª»»£¬Ê¹ Array ¶ÔÏó¿ÉÒÔÆğµ½ C++ ÆÕÍ¨Êı×éµÄ×÷ÓÃ
-	operator const T* () const;                     //µ½ ÔŞÀàĞÍ×ª»»²Ù×÷·ûÕë¶Ô const µÄÖØÔØ
-	int getSize() const;                            //È¡Êı×éµÄ´óĞ¡
-	void resize(int sz);                            //ĞŞ¸ÄÊı×éµÄ´óĞ¡
+	Array(const Array<T>& a);                       // å¤åˆ¶æ„é€ å‡½æ•°
+	~Array();                                       //ææ„å‡½æ•°
+	Array<T>& operator = (const Array<T>& rhs);     //é‡è½½"="ä½¿æ•°ç»„å¯¹è±¡å¯ä»¥æ•´ä½“èµ‹å€¼
+	T& operator[] (int i);	                        //é‡è½½"[]"ä½¿ Array å¯¹è±¡å¯ä»¥èµ·åˆ° C++ æ™®é€šæ•°ç»„çš„ä½œç”¨
+	const T& operator [](int i) const;              //é‡è½½"[]"è¿ç®—ç¬¦é’ˆå¯¹ const çš„é‡è½½
+	operator T* ();                                 //é‡è½½åˆ° T* ç±»å‹çš„è½¬æ¢ï¼Œä½¿ Array å¯¹è±¡å¯ä»¥èµ·åˆ° C++ æ™®é€šæ•°ç»„çš„ä½œç”¨
+	operator const T* () const;                     //åˆ° èµç±»å‹è½¬æ¢æ“ä½œç¬¦é’ˆå¯¹ const çš„é‡è½½
+	int getSize() const;                            //å–æ•°ç»„çš„å¤§å°
+	void resize(int sz);                            //ä¿®æ”¹æ•°ç»„çš„å¤§å°
 };
 
-// ¹¹Ôìº¯Êı
+// æ„é€ å‡½æ•°
 template<class T>
 Array<T>::Array(int sz) {
 	assert(sz >= 0);
@@ -28,13 +28,13 @@ Array<T>::Array(int sz) {
 	list = new T[size];
 }
 
-//Îö¹¹º¯Êı
+//ææ„å‡½æ•°
 template<class T>
 Array<T>::~Array() {
 	delete[] list;
 }
 
-//¸´ÖÆ¹¹Ôìº¯Êı
+//å¤åˆ¶æ„é€ å‡½æ•°
 template<class T>
 Array<T>::Array(const Array<T>& a) {
 	size = a.size;
@@ -44,7 +44,7 @@ Array<T>::Array(const Array<T>& a) {
 	}
 }
 
-//ÖØÔØ"="ÔËËã·û£¬½«¶ÔÏó rhs ¸³Öµ¸ø±¾¶ÔÏó£¬ÊµÏÖ¶ÔÏóÖ®¼äµÄÕûÌå¸³Öµ
+//é‡è½½"="è¿ç®—ç¬¦ï¼Œå°†å¯¹è±¡ rhs èµ‹å€¼ç»™æœ¬å¯¹è±¡ï¼Œå®ç°å¯¹è±¡ä¹‹é—´çš„æ•´ä½“èµ‹å€¼
 template<class T>
 Array<T>& Array<T>::operator = (const Array<T>& rhs) {
 	if (&rhs != this) {
@@ -58,7 +58,7 @@ Array<T>& Array<T>::operator = (const Array<T>& rhs) {
 	return *this;
 }
 
-//ÖØÔØÏÂ±êÔËËã·û£¬ÊµÏÖÓëÆÕÍ¨Êı×éÒ»ÑùÍ¨¹ıÏÂ±ê·ÃÎÊÔªËØ£¬²¢ÇÒ¾ßÓĞÔ½½ç¼ì²é¹¦ÄÜ
+//é‡è½½ä¸‹æ ‡è¿ç®—ç¬¦ï¼Œå®ç°ä¸æ™®é€šæ•°ç»„ä¸€æ ·é€šè¿‡ä¸‹æ ‡è®¿é—®å…ƒç´ ï¼Œå¹¶ä¸”å…·æœ‰è¶Šç•Œæ£€æŸ¥åŠŸèƒ½
 template<class T>
 T& Array<T>::operator[] (int n) {
 	assert(n >= 0 & n < size);
@@ -71,9 +71,9 @@ const T& Array<T>::operator[] (int n) const {
 	return list[n];
 }
 
-//ÖØÔØÖ¸Õë×ª»»ÔËËã·û£¬½« Array ÀàµÄ¶ÔÏóÃû×ª»»Îª ÀàĞÍµÄÖ¸Õë£¬
-//Ö¸Ïòµ±Ç°¶ÔÏóÖĞµÄË½ÓĞÊı×é£¬
-//Òò¶ø¿ÉÒÔÏñÊ¹ÓÃÆÕÍ¨Êı×éÊ×µØÖ·Ò»ÑùÊ¹ÓÃ Array ÀàµÄ¶ÔÏóÃû
+//é‡è½½æŒ‡é’ˆè½¬æ¢è¿ç®—ç¬¦ï¼Œå°† Array ç±»çš„å¯¹è±¡åè½¬æ¢ä¸º ç±»å‹çš„æŒ‡é’ˆï¼Œ
+//æŒ‡å‘å½“å‰å¯¹è±¡ä¸­çš„ç§æœ‰æ•°ç»„ï¼Œ
+//å› è€Œå¯ä»¥åƒä½¿ç”¨æ™®é€šæ•°ç»„é¦–åœ°å€ä¸€æ ·ä½¿ç”¨ Array ç±»çš„å¯¹è±¡å
 template<class T>
 Array<T>::operator T* () {
 	return list;
@@ -84,13 +84,13 @@ Array<T>::operator const T* () const {
 	return list;
 }
 
-//È¡µ±Ç°Êı×éµÄ´óĞ¡
+//å–å½“å‰æ•°ç»„çš„å¤§å°
 template<class T>
 int Array<T>::getSize() const {
 	return size;
 }
 
-//½«Êı×é´óĞ¡ĞŞ¸ÄÎª sz
+//å°†æ•°ç»„å¤§å°ä¿®æ”¹ä¸º sz
 template<class T>
 void Array<T>::resize(int sz) {
 	assert(sz >= 0);

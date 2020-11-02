@@ -1,4 +1,4 @@
-﻿#include <queue>
+#include <queue>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

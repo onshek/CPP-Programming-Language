@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 void func1(int* A, int n) {
     std::cout << "func1: ";

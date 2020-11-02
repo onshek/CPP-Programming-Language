@@ -1,4 +1,4 @@
-﻿// 用于测试运算符的自动类型转换
+// 用于测试运算符的自动类型转换
 #include <iostream>
 #include <typeinfo>
 using namespace std;

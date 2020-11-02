@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <numeric>                    //包含数值算法头文件
 #include <functional>                 //包含标准函数对象头文件
 using namespace std;

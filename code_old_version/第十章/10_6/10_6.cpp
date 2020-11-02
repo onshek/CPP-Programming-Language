@@ -1,4 +1,4 @@
-﻿#include <list>
+#include <list>
 #include <iterator>
 #include <string>
 #include <iostream>

@@ -1,4 +1,4 @@
-﻿#include "account.h"
+#include "account.h"
 #include <iostream>
 using namespace std;
 

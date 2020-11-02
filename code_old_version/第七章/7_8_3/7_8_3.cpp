@@ -1,4 +1,4 @@
-﻿// 对应 7.5.3 虚基类及其派生类构造函数
+// 对应 7.5.3 虚基类及其派生类构造函数
 #include <iostream>
 using namespace std;
 
