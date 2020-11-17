@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int a[10], b[10];
     for (int i = 0; i < 10; i++) {
-        a[0] = i * 2 - 1;
+        a[i] = i * 2 - 1;
         b[10 - i - 1] = a[i];
     }
     for (int i = 0; i < 10; i++) {
